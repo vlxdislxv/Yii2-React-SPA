@@ -1,5 +1,7 @@
 <?php
 
+use app\modules\api\Module as ApiModule;
+
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
@@ -10,6 +12,11 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
+    ],
+    'modules' => [
+        'api' => [
+            'class' => ApiModule::class
+        ]
     ],
     'components' => [
         'request' => [
@@ -47,13 +54,10 @@ $config = [
         ],
         'db' => $db,
         'urlManager' => [
+            'class' => 'app\components\UrlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
-                '/login' => '/',
-                '/register' => '/',
-            ],
+            'rules' => [],
         ],
     ],
     'params' => $params,

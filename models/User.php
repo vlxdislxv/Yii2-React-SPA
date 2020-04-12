@@ -46,6 +46,15 @@ class User extends ActiveRecord implements IdentityInterface
         return ($token->time + $expire) < time();
     }
 
+    public function fields()
+    {
+        return [
+            'id',
+            'username',
+            'email'
+        ];
+    }
+
     /**
      * {@inheritdoc}
      */

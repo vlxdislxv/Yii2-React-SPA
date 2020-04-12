@@ -23,7 +23,7 @@ module.exports = {
     externals: {
         // global app config object
         config: JSON.stringify({
-            apiUrl: 'http://reactyii.loc'
+            apiUrl: 'http://reactyii.loc/api'
         })
     }
 };

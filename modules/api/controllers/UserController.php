@@ -1,8 +1,10 @@
 <?php
 
 
-namespace app\controllers;
+namespace app\modules\api\controllers;
 
+use app\modules\api\actions\user\LoginAction;
+use app\modules\api\actions\user\RegisterAction;
 use yii\filters\auth\CompositeAuth;
 use yii\filters\auth\HttpBasicAuth;
 use yii\filters\auth\HttpBearerAuth;
@@ -27,12 +29,12 @@ class UserController extends ActiveController
                 'modelClass' => $this->modelClass
             ],
             'login' => [
-                'class' => 'app\actions\user\LoginAction',
+                'class' => LoginAction::class,
                 'modelClass' => $this->modelClass,
                 'params' => Yii::$app->request->post()
             ],
             'register' => [
-                'class' => 'app\actions\user\RegisterAction',
+                'class' => RegisterAction::class,
                 'modelClass' => $this->modelClass,
                 'params' => Yii::$app->request->post()
             ]

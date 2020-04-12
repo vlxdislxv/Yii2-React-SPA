@@ -1,6 +1,6 @@
 <?php
 
-namespace app\actions\user;
+namespace app\modules\api\actions\user;
 
 use app\models\LoginForm;
 use yii\rest\Action;
